@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     public CanvasGroup buttonPanel;
     public CanvasGroup pauseOverlay;
+    public GameEndPopupScript endGameUIController;
     public Button button;
     public Character[] playerCharacter;
     public Character[] enemyCharacter;
@@ -28,11 +29,13 @@ public class GameController : MonoBehaviour
     void PlayerWon()
     {
         Debug.Log("Player won.");
+        endGameUIController.ShowWinPopup();
     }
 
     void PlayerLost()
     {
         Debug.Log("Player lost.");
+        endGameUIController.ShowLosePopup();
     }
 
     bool CheckEndGame()
@@ -70,10 +73,11 @@ public class GameController : MonoBehaviour
     }
 
     public void ShowPauseOverlay()
-    {        
-        Debug.Log(" ShowPauseOverlay  pauseOverlay, true);");
+    {                
         Utility.SetCanvasGroupEnabled(pauseOverlay, true);
     }
+
+
 
     IEnumerator GameLoop()
     {

@@ -6,6 +6,7 @@ public class PauseMenuController : MonoBehaviour
 {
 
     public CanvasGroup pauseOverlay;
+    
 
     void Start() {
         Utility.SetCanvasGroupEnabled(pauseOverlay, false);
